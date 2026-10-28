@@ -71,6 +71,7 @@ done
 # ---------- main ----------
 run_script() {
   local name="$1"
+  log "Running $name"
   if [ -n "$SCRIPT_DIR" ] && [ -f "$SCRIPT_DIR/$name" ]; then
     bash "$SCRIPT_DIR/$name"
   else
