@@ -3,6 +3,7 @@ set -eo pipefail
 log()  { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RAW_URL="${RAW_URL:-https://raw.githubusercontent.com/tiagozaccaro/macos-setup/main}"
+FORCE="${FORCE:-1}"
 fetch_file() { local rel="$1" dest="$2"; if [ -n "$SCRIPT_DIR" ] && [ -f "$SCRIPT_DIR/$rel" ]; then cp "$SCRIPT_DIR/$rel" "$dest"; else curl -fsSL "$RAW_URL/$rel" -o "$dest"; fi; }
 install_homebrew() {
   if ! command -v brew >/dev/null 2>&1; then
