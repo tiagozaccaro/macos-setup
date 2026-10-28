@@ -32,11 +32,20 @@ except FileNotFoundError:
     data = {}
 existing = data.get("persistent-apps", [])
 existing_paths = {e.get("tile-data", {}).get("file-data", {}).get("_CFURLString") for e in existing}
-for e in entries:
+# Insert new apps right after Safari
+safari_idx = None
+for i, e in enumerate(existing):
+    if "Safari.app" in e.get("tile-data", {}).get("file-data", {}).get("_CFURLString", ""):
+        safari_idx = i
+        break
+insert_at = (safari_idx + 1) if safari_idx is not None else len(existing)
+for e in reversed(entries):
     p = e["tile-data"]["file-data"]["_CFURLString"]
-    if p not in existing_paths:
-        existing.append(e)
-        existing_paths.add(p)
+    if p in existing_paths:
+        continue
+    existing.insert(insert_at, e)
+    existing_paths.add(p)
+    insert_at += 1
 data["persistent-apps"] = existing
 with open(plist_path, "wb") as f:
     plistlib.dump(data, f)
