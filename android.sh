@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 log()  { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
 ANDROID_HOME="${ANDROID_HOME:-$HOME/Library/Android/sdk}"
 install_android_sdk() {
