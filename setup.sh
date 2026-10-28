@@ -83,8 +83,10 @@ main() {
     run_script "brew.sh" || warn "brew.sh failed"
     run_script "python.sh" || warn "python.sh failed"
     run_script "opencode.sh" || warn "opencode.sh failed"
+    run_script "github.sh" || warn "github.sh failed"
     run_script "vscode-extensions.sh" || warn "vscode-extensions.sh failed"
     run_script "xcode.sh" || warn "xcode.sh failed"
+    run_script "dock.sh" || warn "dock.sh failed"
     run_script "android.sh" || warn "android.sh failed"
   fi
   if [ "$RUN_DEFAULTS" -eq 1 ]; then run_script "defaults.sh"; fi
