@@ -1,6 +1,3 @@
-# Brewfile - used by `brew bundle`
-tap "homebrew/bundle"
-
 brew "curl"
 brew "colima"
 brew "docker"
