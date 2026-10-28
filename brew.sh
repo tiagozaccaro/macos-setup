@@ -11,11 +11,13 @@ install_homebrew() {
   fi
   if [ -x /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; elif [ -x /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)"; fi
   # Persist brew to user PATH
-  local profile="$HOME/.zshrc"
+  local profile="$HOME/.zprofile"
   if [ -x /opt/homebrew/bin/brew ]; then
-    grep -q 'brew shellenv' "$profile" 2>/dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$profile"
+    grep -q 'brew shellenv' "$profile" 2>/dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' >> "$profile"
+    eval "$(/opt/homebrew/bin/brew shellenv zsh)"
   elif [ -x /usr/local/bin/brew ]; then
-    grep -q 'brew shellenv' "$profile" 2>/dev/null || echo 'eval "$(/usr/local/bin/brew shellenv)"' >> "$profile"
+    grep -q 'brew shellenv' "$profile" 2>/dev/null || echo 'eval "$(/usr/local/bin/brew shellenv zsh)"' >> "$profile"
+    eval "$(/usr/local/bin/brew shellenv zsh)"
   fi
   log "Updating Homebrew"; brew update
 }
