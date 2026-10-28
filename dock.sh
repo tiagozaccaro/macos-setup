@@ -31,6 +31,8 @@ try:
 except FileNotFoundError:
     data = {}
 existing = data.get("persistent-apps", [])
+# Remove stale entries (apps no longer on disk)
+existing = [e for e in existing if os.path.exists(e.get("tile-data", {}).get("file-data", {}).get("_CFURLString", ""))]
 existing_paths = {e.get("tile-data", {}).get("file-data", {}).get("_CFURLString") for e in existing}
 # Insert new apps right after Safari
 safari_idx = None

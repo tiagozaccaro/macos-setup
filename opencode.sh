@@ -79,11 +79,4 @@ if [ -z "${CONTEXT7_API_KEY}" ]; then
   fi
 fi
 
-if [ ! -f "$CONFIG_FILE" ]; then
-  log "Writing opencode config"
-  cp "$SOURCE_CONFIG" "$CONFIG_FILE"
-else
-  log "opencode config already exists"
-fi
-
 log "Done"
