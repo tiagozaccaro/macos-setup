@@ -39,7 +39,7 @@ for i, e in enumerate(existing):
         safari_idx = i
         break
 insert_at = (safari_idx + 1) if safari_idx is not None else len(existing)
-for e in reversed(entries):
+for e in entries:
     p = e["tile-data"]["file-data"]["_CFURLString"]
     if p in existing_paths:
         continue
