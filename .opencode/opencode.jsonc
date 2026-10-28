@@ -4,30 +4,32 @@
     "zen": {
       "options": {
         "apiKey": "{env:ZEN_API_KEY}",
-        "baseURL": "https://zen.claude.ai"
-      }
+        "baseURL": "https://zen.claude.ai",
+      },
     },
     "kilo": {
       "options": {
         "apiKey": "{env:KILO_API_KEY}",
-        "baseURL": "https://ai-gateway.kilo.ai/api/v1"
-      }
+        "baseURL": "https://ai-gateway.kilo.ai/api/v1",
+      },
     },
     "openrouter": {
       "options": {
         "apiKey": "{env:OPENROUTER_API_KEY}",
-        "baseURL": "https://openrouter.ai/api/v1"
-      }
-    }
+        "baseURL": "https://openrouter.ai/api/v1",
+      },
+    },
   },
   "mcp": {
     "context7": {
+      "type": "local",
       "command": ["npx", "-y", "@context7/mcp-server"],
       "env": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      }
-    }
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}",
+      },
+      "enabled": true,
+    },
   },
   "model": "zen/nemotron",
-  "skills": [".opencode/skills"]
+  "skills": [".opencode/skills"],
 }
