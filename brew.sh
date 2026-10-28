@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 log()  { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RAW_URL="${RAW_URL:-https://raw.githubusercontent.com/tiagozaccaro/macos-setup/main}"
