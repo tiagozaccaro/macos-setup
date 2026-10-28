@@ -78,7 +78,7 @@ run_script() {
   fi
 }
 main() {
-  if [ "$RUN_BREW" -eq 1 ]; then run_script "brew.sh"; run_script "python.sh"; run_script "opencode.sh"; run_script "xcode.sh"; run_script "android.sh"; fi
+  if [ "$RUN_BREW" -eq 1 ]; then run_script "brew.sh"; run_script "python.sh"; run_script "opencode.sh"; run_script "vscode-extensions.sh"; run_script "xcode.sh"; run_script "android.sh"; fi
   if [ "$RUN_DEFAULTS" -eq 1 ]; then run_script "defaults.sh"; fi
   log "Done"
 }
