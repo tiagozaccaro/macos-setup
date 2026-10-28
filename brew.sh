@@ -25,7 +25,7 @@ install_homebrew() {
 install_from_brewfile() {
   local brewfile
   if [ "${FORCE:-0}" != "1" ] && [ -n "$SCRIPT_DIR" ] && [ -f "$SCRIPT_DIR/Brewfile" ]; then brewfile="$SCRIPT_DIR/Brewfile"; else brewfile="$(mktemp)"; log "Fetching Brewfile"; fetch_file "Brewfile" "$brewfile"; fi
-  log "Installing from Brewfile"; brew bundle --file="$brewfile"
+  log "Installing from Brewfile"; yes | brew bundle --file="$brewfile" --force
 }
 main() { install_homebrew; install_from_brewfile; log "Done"; }
 main "$@"
