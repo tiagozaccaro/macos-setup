@@ -10,7 +10,7 @@ install_xcode() {
       installed_mas=1
     fi
     log "Installing Xcode via Mac App Store (mas)"
-    mas install 497799835 || true
+    yes | mas install 497799835 || true
     if [ "$installed_mas" -eq 1 ]; then
       log "Removing temporary mas"
       brew uninstall mas || true
