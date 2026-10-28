@@ -10,6 +10,13 @@ install_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
   if [ -x /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; elif [ -x /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)"; fi
+  # Persist brew to user PATH
+  local profile="$HOME/.zshrc"
+  if [ -x /opt/homebrew/bin/brew ]; then
+    grep -q 'brew shellenv' "$profile" 2>/dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$profile"
+  elif [ -x /usr/local/bin/brew ]; then
+    grep -q 'brew shellenv' "$profile" 2>/dev/null || echo 'eval "$(/usr/local/bin/brew shellenv)"' >> "$profile"
+  fi
   log "Updating Homebrew"; brew update
 }
 install_from_brewfile() {
