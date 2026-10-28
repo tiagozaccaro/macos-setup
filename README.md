@@ -22,7 +22,7 @@ Run only parts:
 ## Run via curl
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tiagosantana/macos-setup/main/setup.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tiagozaccaro/macos-setup/main/setup.sh)"
 ```
 
 Or with a custom raw URL:

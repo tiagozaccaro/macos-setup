@@ -27,7 +27,7 @@ fi
 
 # Raw base URL for fetching companion files when run remotely (curl | bash).
 # Override with: RAW_URL=... ./setup.sh  or  curl ... | RAW_URL=... bash
-RAW_URL="${RAW_URL:-https://raw.githubusercontent.com/tiagosantana/macos-setup/main}"
+RAW_URL="${RAW_URL:-https://raw.githubusercontent.com/tiagozaccaro/macos-setup/main}"
 
 fetch_file() {
   # fetch_file <relative-path> <dest>
